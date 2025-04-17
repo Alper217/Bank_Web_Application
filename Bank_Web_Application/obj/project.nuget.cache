@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "o5Hrt9Uz6iI=",
+  "dgSpecHash": "oBW1/QE+wYY=",
   "success": true,
   "projectFilePath": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Bank_Web_Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\A\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\A\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\A\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\A\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\A\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\A\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",
