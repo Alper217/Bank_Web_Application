@@ -1,29 +1,189 @@
 ﻿@model ExchangeRateResponse
 
-<div style="display: flex; justify-content: space-between;">
+<style>
+    .main-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+        gap: 20px;
+    }
 
-    <!-- Sol Ana İçerik -->
-    <div style="width: 70%;">
-        <h2>Hoşgeldiniz!</h2>
+    .left-panel {
+        flex: 3;
+    }
+
+    .right-panel {
+        flex: 1;
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-left: 2px solid #ccc;
+        height: 600px;
+        overflow-y: auto;
+        position: sticky;
+        top: 20px;
+    }
+
+    .balance-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    form input,
+    form select,
+    form button {
+        margin: 5px 0;
+        padding: 5px;
+        width: 100%;
+    }
+
+    h4 {
+        margin-top: 30px;
+    }
+
+    .currency-box {
+        background-color: #fff;
+        padding: 10px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-currencies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .user-currency-item {
+        background-color: #e9ecef;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="main-container">
+    <!-- Sol Panel -->
+    <div class="left-panel">
+        <div class="balance-info">
+            <h3>💼 Bakiye: @ViewBag.Balance @ViewBag.AccountCurrency</h3>
+            <h3>🌍 Toplam (USD): @ViewBag.TotalInUSD</h3>
+        </div>
+
+        <h2>🏦 Hoşgeldiniz!</h2>
         <p>Burası banka sisteminin ana sayfası.</p>
-        <!-- Diğer içerikler buraya -->
+
+        <!-- Kullanıcının Sahip Olduğu Para Birimleri -->
+        <h4>💳 Hesap Para Birimleri</h4>
+        @if (ViewBag.UserCurrencies != null && ViewBag.UserCurrencies.Count > 0)
+        {
+            <div class="user-currencies">
+                @foreach (var entry in ViewBag.UserCurrencies as Dictionary<string, decimal>)
+                {
+                    if (entry.Value > 0)
+                    {
+                        <div class="user-currency-item">@entry.Key: @entry.Value</div>
+                    }
+                }
+            </div>
+        }
+        <!-- Eğer kullanıcıda para birimi yoksa, hiçbir şey gösterilmeyecek -->
+        <!-- PARA YATIRMA -->
+        <h4>💰 Para Yatır</h4>
+        <form asp-action="Deposit" method="post">
+            <input type="hidden" name="accountId" value="1" />
+            <div class="form-group">
+                <label>Tutar:</label>
+                <input type="number" name="amount" step="0.01" required />
+            </div>
+            <div class="form-group">
+                <label>Açıklama:</label>
+                <input type="text" name="description" />
+            </div>
+            <button type="submit">Para Yatır</button>
+        </form>
+
+        <!-- PARA ÇEKME -->
+        <h4>🏧 Para Çek</h4>
+        <form asp-action="Withdraw" method="post">
+            <input type="hidden" name="accountId" value="1" />
+            <div class="form-group">
+                <label>Tutar:</label>
+                <input type="number" name="amount" step="0.01" required />
+            </div>
+            <div class="form-group">
+                <label>Açıklama:</label>
+                <input type="text" name="description" />
+            </div>
+            <button type="submit">Para Çek</button>
+        </form>
+
+        <!-- PARA BOZDURMA -->
+        <h4>💱 Para Bozdurma İşlemi (Yakında)</h4>
+        <p>Bu özellik şu anda kullanılamıyor.</p>
+        <!-- İşlevsiz bırakıldı, ancak görsel olarak var -->
+        <form method="post" asp-action="ConvertCurrency" style="display:none;">
+            <div class="form-group">
+                <label for="fromCurrency">Bozulacak Para Birimi:</label>
+                <select name="fromCurrency" id="fromCurrency" required>
+                    @if (ViewBag.AvailableCurrencies is Dictionary<string, decimal> availableCurrencies)
+                    {
+                        foreach (var currency in availableCurrencies)
+                        {
+                            <option value="@currency.Key">@currency.Key (@currency.Value)</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="toCurrency">Dönüştürülecek Para Birimi:</label>
+                <select name="toCurrency" id="toCurrency" required>
+                    @if (Model.Rates is Dictionary<string, decimal> rates)
+                    {
+                        foreach (var rate in rates)
+                        {
+                            <option value="@rate.Key">@rate.Key</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="amount">Miktar:</label>
+                <input type="number" name="amount" id="amount" step="0.01" required />
+            </div>
+            <button type="submit">Dönüştür</button>
+        </form>
     </div>
 
-    <!-- Sağ Tabela Stilinde Kur Bilgisi -->
-    <div style="width: 20%; background-color: #f8f9fa; padding: 15px; border-left: 2px solid #ccc; height: 400px; overflow-y: auto; position: fixed; right: 0; top: 50%; transform: translateY(-50%);">
-
-        <!-- Döviz Kuru Başlığı Sabit -->
-        <h4 style="text-align:center; position: sticky; top: 0; background-color: #f8f9fa; padding-top: 10px; z-index: 1; border-bottom: 2px solid #ccc; margin-bottom: 10px;">📊 Döviz Kurları (USD)</h4>
-
-        <!-- Döviz Kurları Tablosu -->
-        <ul style="list-style: none; padding: 0; margin: 0;">
-            @foreach (var rate in Model.Rates)
-            {
-                <li style="padding: 8px 0; font-weight: bold;">
-                    USD → @rate.Key: @rate.Value
-                </li>
-            }
-        </ul>
+    <!-- Sağ Panel -->
+    <div class="right-panel">
+        <h4 style="text-align:center; margin-bottom: 15px;">📊 Döviz Kurları (USD)</h4>
+        @foreach (var rate in Model.Rates)
+        {
+            <div class="currency-box">
+                USD → <strong>@rate.Key:</strong> @rate.Value
+            </div>
+        }
     </div>
-
 </div>

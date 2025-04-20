@@ -40,7 +40,15 @@ namespace Bank_Web_Application.Controllers
 
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
-
+                var newAccount = new Account
+                {
+                    UserId = user.Id,
+                    Balance = 0,
+                    Currency ="USD",
+                    CreatedAt = DateTime.UtcNow
+                };
+                _context.Accounts.Add(newAccount);
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Login", "Account");
             }
 
