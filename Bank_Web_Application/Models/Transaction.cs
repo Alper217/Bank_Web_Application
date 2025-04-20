@@ -6,21 +6,14 @@ public class Transaction
 
     public int AccountId { get; set; }
     public Account Account { get; set; }
-
-    // İşlem türü: Deposit, Withdraw, Transfer, Exchange
     public string Type { get; set; }
-
-    // İşlem miktarı
     public decimal Amount { get; set; }
-
-    // Para birimi: TRY, USD, EUR vs.
     public string Currency { get; set; }
-
-    // İşlem açıklaması (isteğe bağlı)
+      //Not Neccessary, Depend The Person
     public string Description { get; set; }
 
     public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
-    // IP adresi loglama
+    // IP Check
     public string IPAddress { get; set; }
 }

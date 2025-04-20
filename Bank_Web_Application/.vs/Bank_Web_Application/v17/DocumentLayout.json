@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\models\\exchangerateresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:models\\exchangerateresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\models\\bankdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:models\\bankdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D60E89C-9032-4B64-91A2-48C1E7548931}|Bank_Web_Application.csproj|c:\\users\\a\\desktop\\fpsexercise\\bank_web_application\\bank_web_application\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -54,111 +46,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-16T19:58:32.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-16T19:21:42.436Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BankDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\BankDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\BankDbContext.cs",
-              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\BankDbContext.cs",
-              "RelativeToolTip": "Models\\BankDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T19:08:30.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAwwDwAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T19:20:39.181Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Transaction.cs",
-              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\Transaction.cs",
-              "RelativeDocumentMoniker": "Models\\Transaction.cs",
-              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\Transaction.cs",
-              "RelativeToolTip": "Models\\Transaction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T19:11:40.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\Account.cs",
-              "RelativeDocumentMoniker": "Models\\Account.cs",
-              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\Account.cs",
-              "RelativeToolTip": "Models\\Account.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T19:12:29.318Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "Models\\ErrorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T19:47:05.54Z",
+              "WhenOpened": "2025-04-20T12:32:40.443Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "Models\\Account.cs",
+              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\Account.cs",
+              "RelativeToolTip": "Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T13:04:45.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T13:04:27.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-20T12:30:57.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExchangeRateResponse.cs",
+              "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\ExchangeRateResponse.cs",
+              "RelativeDocumentMoniker": "Models\\ExchangeRateResponse.cs",
+              "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Models\\ExchangeRateResponse.cs",
+              "RelativeToolTip": "Models\\ExchangeRateResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T12:33:58.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-16T19:09:01.619Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\A\\Desktop\\FPSExercise\\Bank_Web_Application\\Bank_Web_Application\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",

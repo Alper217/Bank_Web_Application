@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model ExchangeRateResponse
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div style="display: flex; justify-content: space-between;">
+
+    <!-- Sol Ana İçerik -->
+    <div style="width: 70%;">
+        <h2>Hoşgeldiniz!</h2>
+        <p>Burası banka sisteminin ana sayfası.</p>
+        <!-- Diğer içerikler buraya -->
+    </div>
+
+    <!-- Sağ Tabela Stilinde Kur Bilgisi -->
+    <div style="width: 20%; background-color: #f8f9fa; padding: 15px; border-left: 2px solid #ccc; height: 400px; overflow-y: auto; position: fixed; right: 0; top: 50%; transform: translateY(-50%);">
+
+        <!-- Döviz Kuru Başlığı Sabit -->
+        <h4 style="text-align:center; position: sticky; top: 0; background-color: #f8f9fa; padding-top: 10px; z-index: 1; border-bottom: 2px solid #ccc; margin-bottom: 10px;">📊 Döviz Kurları (USD)</h4>
+
+        <!-- Döviz Kurları Tablosu -->
+        <ul style="list-style: none; padding: 0; margin: 0;">
+            @foreach (var rate in Model.Rates)
+            {
+                <li style="padding: 8px 0; font-weight: bold;">
+                    USD → @rate.Key: @rate.Value
+                </li>
+            }
+        </ul>
+    </div>
+
 </div>
