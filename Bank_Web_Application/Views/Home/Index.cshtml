@@ -78,24 +78,23 @@
         transition: background-color 0.3s ease;
     }
 
-    button:hover {
-        background-color: #0056b3;
-    }
+        button:hover {
+            background-color: #0056b3;
+        }
 </style>
 
 <div class="main-container">
     <!-- Sol Panel -->
     <div class="left-panel">
         <div class="balance-info">
-            <h3>💼 Bakiye: @ViewBag.Balance @ViewBag.AccountCurrency</h3>
-            <h3>🌍 Toplam (USD): @ViewBag.TotalInUSD</h3>
+            <h3>💼 Bakiye (USD): @ViewBag.TotalInUSD</h3>
         </div>
 
         <h2>🏦 Hoşgeldiniz!</h2>
         <p>Burası banka sisteminin ana sayfası.</p>
 
-        <!-- Kullanıcının Sahip Olduğu Para Birimleri -->
-        <h4>💳 Hesap Para Birimleri</h4>
+        <!-- Kullanıcının Sahip Olduğu Diğer Para Birimleri -->
+        <h4>💳 Diğer Para Birimleri</h4>
         @if (ViewBag.UserCurrencies != null && ViewBag.UserCurrencies.Count > 0)
         {
             <div class="user-currencies">
@@ -108,7 +107,7 @@
                 }
             </div>
         }
-        <!-- Eğer kullanıcıda para birimi yoksa, hiçbir şey gösterilmeyecek -->
+
         <!-- PARA YATIRMA -->
         <h4>💰 Para Yatır</h4>
         <form asp-action="Deposit" method="post">
@@ -140,40 +139,79 @@
         </form>
 
         <!-- PARA BOZDURMA -->
-        <h4>💱 Para Bozdurma İşlemi (Yakında)</h4>
-        <p>Bu özellik şu anda kullanılamıyor.</p>
-        <!-- İşlevsiz bırakıldı, ancak görsel olarak var -->
-        <form method="post" asp-action="ConvertCurrency" style="display:none;">
-            <div class="form-group">
-                <label for="fromCurrency">Bozulacak Para Birimi:</label>
-                <select name="fromCurrency" id="fromCurrency" required>
-                    @if (ViewBag.AvailableCurrencies is Dictionary<string, decimal> availableCurrencies)
-                    {
-                        foreach (var currency in availableCurrencies)
+        <h4>💱 Para Bozdurma İşlemi</h4>
+        @if (ViewBag.UserCurrencies != null && ViewBag.UserCurrencies.Count > 0)
+        {
+            <form asp-action="ConvertCurrency" method="post">
+                <div class="form-group">
+                    <label for="fromCurrency">Bozulacak Para Birimi:</label>
+                    <select name="fromCurrency" id="fromCurrency" required>
+                        @foreach (var currency in ViewBag.UserCurrencies as Dictionary<string, decimal>)
                         {
                             <option value="@currency.Key">@currency.Key (@currency.Value)</option>
                         }
-                    }
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="toCurrency">Dönüştürülecek Para Birimi:</label>
-                <select name="toCurrency" id="toCurrency" required>
-                    @if (Model.Rates is Dictionary<string, decimal> rates)
-                    {
-                        foreach (var rate in rates)
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="toCurrency">Dönüştürülecek Para Birimi:</label>
+                    <select name="toCurrency" id="toCurrency" required>
+                        @foreach (var rate in Model.Rates)
                         {
                             <option value="@rate.Key">@rate.Key</option>
                         }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Miktar:</label>
+                    <input type="number" name="amount" id="amount" step="0.01" required />
+                </div>
+
+                <!-- 🔁 Canlı Kur Bilgisi -->
+                <div id="exchangeRateInfo" style="margin-top: 10px; font-weight: bold;"></div>
+
+                <button type="submit">Dönüştür</button>
+            </form>
+
+            <!-- 🔧 JavaScript kısmı -->
+            <script>
+                const rates = @Html.Raw(Json.Serialize(Model.Rates));
+                const fromSelect = document.getElementById('fromCurrency');
+                const toSelect = document.getElementById('toCurrency');
+                const rateInfo = document.getElementById('exchangeRateInfo');
+
+                function updateRateInfo() {
+                    const from = fromSelect.value;
+                    const to = toSelect.value;
+
+                    if (from === to) {
+                        rateInfo.textContent = "Aynı para birimi seçildi.";
+                        return;
                     }
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="amount">Miktar:</label>
-                <input type="number" name="amount" id="amount" step="0.01" required />
-            </div>
-            <button type="submit">Dönüştür</button>
-        </form>
+
+                    const fromRate = rates[from];
+                    const toRate = rates[to];
+
+                    if (fromRate && toRate) {
+                        const rate = (toRate / fromRate).toFixed(4);
+                        rateInfo.textContent = `1 ${from} = ${rate} ${to}`;
+                    } else {
+                        rateInfo.textContent = "Geçersiz para birimi seçimi.";
+                    }
+                }
+
+                fromSelect.addEventListener('change', updateRateInfo);
+                toSelect.addEventListener('change', updateRateInfo);
+
+                // İlk yüklendiğinde göster
+                updateRateInfo();
+            </script>
+        }
+        else
+        {
+            <p>Hesabınızda herhangi bir para birimi bulunmamaktadır.</p>
+        }
     </div>
 
     <!-- Sağ Panel -->

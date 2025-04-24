@@ -30,14 +30,13 @@ namespace Bank_Web_Application.Controllers
 
             ViewBag.Balance = account.Balance;
 
-            // Eğer hesapta hiç para yoksa, para birimlerini kullanıcıya göstermemek
             if (account.Balance <= 0)
             {
-                ViewBag.UserCurrencies = null; // Para birimlerini boş bırakıyoruz
+                ViewBag.UserCurrencies = null; 
             }
             else
             {
-                // Kullanıcının sahip olduğu para birimlerini veritabanından almak
+                //Get User Balance Rates
                 var userCurrencies = await _context.UserCurrencies
                     .Where(uc => uc.UserId == userId)
                     .ToListAsync();
@@ -46,14 +45,14 @@ namespace Bank_Web_Application.Controllers
                 ViewBag.UserCurrencies = userCurrencyDict;
             }
 
-            // Döviz kurları
+            // Rates
             var exchangeRates = await GetExchangeRatesAsync();
             if (exchangeRates == null)
                 return View("Error", new ErrorViewModel { RequestId = "Döviz kuru alınamadı." });
 
             ViewBag.Rates = exchangeRates.Rates;
 
-            // Toplam USD karşılığı
+            // Total USD
             decimal totalInUSD = account.Currency == "USD"
                 ? account.Balance
                 : account.Balance / exchangeRates.Rates.GetValueOrDefault(account.Currency, 1);
@@ -64,6 +63,7 @@ namespace Bank_Web_Application.Controllers
         }
 
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> Deposit(int accountId, decimal amount, string description)
         {
             var account = await _context.Accounts.FindAsync(accountId);
@@ -71,6 +71,23 @@ namespace Bank_Web_Application.Controllers
                 return NotFound("Hesap bulunamadı.");
 
             account.Balance += amount;
+
+            var userCurrency = await _context.UserCurrencies
+                .FirstOrDefaultAsync(uc => uc.UserId == account.UserId && uc.Currency == "USD");
+
+            if (userCurrency != null)
+            {
+                userCurrency.Balance += amount;
+            }
+            else
+            {
+                _context.UserCurrencies.Add(new UserCurrency
+                {
+                    UserId = account.UserId,
+                    Currency = "USD",
+                    Balance = amount
+                });
+            }
 
             _context.Transactions.Add(new Transaction
             {
@@ -86,6 +103,7 @@ namespace Bank_Web_Application.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Withdraw(int accountId, decimal amount, string description)
@@ -118,32 +136,62 @@ namespace Bank_Web_Application.Controllers
         }
 
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> ConvertCurrency(string fromCurrency, string toCurrency, decimal amount)
         {
-            var userId = 1;
+            var userId = 1; // Giriş yapmış kullanıcı ID'sini buradan almanız gerekiyor
             var account = await _context.Accounts.FirstOrDefaultAsync(a => a.UserId == userId);
             if (account == null)
                 return NotFound("Hesap bulunamadı.");
+
+            var userCurrency = await _context.UserCurrencies
+                .FirstOrDefaultAsync(uc => uc.UserId == userId && uc.Currency == fromCurrency);
+
+            if (userCurrency == null || userCurrency.Balance < amount)
+            {
+                ModelState.AddModelError("", "Yetersiz bakiye.");
+                return View("Error", new ErrorViewModel { RequestId = "Yetersiz bakiye." });
+            }
 
             var exchangeRates = await GetExchangeRatesAsync();
             if (exchangeRates == null)
                 return View("Error", new ErrorViewModel { RequestId = "Döviz kuru alınamadı." });
 
-            // Kaynak ve hedef kur oranları
-            decimal fromRate = exchangeRates.Rates.GetValueOrDefault(fromCurrency, 1);
-            decimal toRate = exchangeRates.Rates.GetValueOrDefault(toCurrency, 1);
+            decimal fromRate = exchangeRates.Rates.GetValueOrDefault(fromCurrency, 0);
+            decimal toRate = exchangeRates.Rates.GetValueOrDefault(toCurrency, 0);
 
+            if (fromRate == 0 || toRate == 0)
+            {
+                return View("Error", new ErrorViewModel { RequestId = "Geçersiz para birimi." });
+            }
+
+            // TRY → EUR gibi hesaplama (USD bazlı orandan orana)
             decimal amountInUSD = amount / fromRate;
             decimal convertedAmount = amountInUSD * toRate;
 
-            if (account.Balance < amount && fromCurrency == account.Currency)
+            userCurrency.Balance -= amount;
+
+            if (account.Currency == fromCurrency && account.Balance >= amount)
             {
-                ModelState.AddModelError("", "Yetersiz bakiye.");
-                return View("Error", new ErrorViewModel { RequestId = "Yetersiz bakiye" });
+                account.Balance -= amount;
             }
 
-            // Bakiyeden düş ve yeni bakiyeyi ayarla (USD bazlı kabul ediliyor)
-            account.Balance -= amount;
+            var targetCurrency = await _context.UserCurrencies
+                .FirstOrDefaultAsync(uc => uc.UserId == userId && uc.Currency == toCurrency);
+
+            if (targetCurrency != null)
+            {
+                targetCurrency.Balance += convertedAmount;
+            }
+            else
+            {
+                _context.UserCurrencies.Add(new UserCurrency
+                {
+                    UserId = userId,
+                    Currency = toCurrency,
+                    Balance = convertedAmount
+                });
+            }
 
             _context.Transactions.Add(new Transaction
             {
@@ -159,6 +207,7 @@ namespace Bank_Web_Application.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
 
         public async Task<IActionResult> AccountDetails()
         {
@@ -190,7 +239,7 @@ namespace Bank_Web_Application.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        // Yardımcı metod: Döviz kurlarını getirir
+          // will change
         private async Task<ExchangeRateResponse?> GetExchangeRatesAsync()
         {
             try
